@@ -1,0 +1,14 @@
+{
+  "name": "devbook",
+  "version": "1.0.0",
+  "description": "Social network for developers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohamed Fawzy",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
