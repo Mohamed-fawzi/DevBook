@@ -87,4 +87,30 @@ router.delete(
   }
 );
 
+// @route   PUT api/posts/:id
+// @desc    Update post
+// @access  Private
+router.put(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Post.findById(req.params.id)
+        .then(post => {
+          // Check for post owner
+          if (post.user.toString() !== req.user.id) {
+            return res
+              .status(401)
+              .json({ notauthorized: "User not authorized" });
+          }
+          // Update the post
+          post
+            .updateOne({ text: req.body.text })
+            .then(() => res.json({ success: true }));
+        })
+        .catch(err => res.status(404).json({ postnotfound: "Post not found" }));
+    });
+  }
+);
+
 module.exports = router;
