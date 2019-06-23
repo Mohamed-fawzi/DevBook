@@ -1,5 +1,9 @@
-import { GET_ERRORS } from "./types";
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
+
+// Import the error type
+import { GET_ERRORS } from "./types";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -25,6 +29,10 @@ export const loginUser = userData => dispatch => {
       localStorage.setItem("jwtToken", token);
       // Set token to Auth header
       setAuthToken(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
     })
     .catch(err =>
       dispatch({
