@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { setCurrentUser } from "./actions/authActions";
+import { Provider } from "react-redux";
+
+import store from "./store";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-import { Provider } from "react-redux";
-import store from "./store";
-import { setCurrentUser } from "./actions/authActions";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -14,6 +15,7 @@ import Register from "./components/auth/Register";
 
 import "./App.css";
 
+// Get the token from the local storage
 const token = localStorage.jwtToken;
 
 // Check for token
