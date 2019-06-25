@@ -26,7 +26,6 @@ const TextAreaFieldGroup = ({
     </div>
   );
 };
-
 TextAreaFieldGroup.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
