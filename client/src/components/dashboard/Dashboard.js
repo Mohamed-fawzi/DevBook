@@ -9,10 +9,44 @@ class Dashboard extends Component {
   }
 
   render() {
-    return <div />;
+    const { user } = this.props.auth;
+    const { profile, loading } = this.props.profile;
+
+    let dashboardConent;
+
+    if (profile === null || loading) {
+      dashboardConent = <h4>Loading...</h4>;
+    } else {
+      dashboardConent = <h1>Hello</h1>;
+    }
+
+    return (
+      <div className="dashboard">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="display-4">Dashboard</h1>
+              {dashboardConent}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
+
+Dashboard.propTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { getCurrentProfile }
 )(Dashboard);
