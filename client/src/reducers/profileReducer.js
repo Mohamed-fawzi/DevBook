@@ -1,3 +1,11 @@
+import {
+  GET_PROFILE,
+  PROFILE_LOADING,
+  PROFILE_NOT_FOUND,
+  CLEAR_CURRENT_PROFILE,
+  GET_PROFILES
+} from "../actions/types";
+
 const initialState = {
   profile: null,
   profiles: null,
