@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { clearCurrentProfile } from "./actions/profileActions";
 import { Provider } from "react-redux";
 
 import store from "./store";
@@ -33,7 +34,8 @@ if (token) {
   if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
-    //  //  // TODO: Clear current profile
+    // Clear current profile
+    store.dispatch(clearCurrentProfile());
     // Redirect to login
     window.location.href = "/login";
   }
