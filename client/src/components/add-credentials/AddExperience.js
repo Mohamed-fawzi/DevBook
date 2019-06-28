@@ -26,6 +26,12 @@ class AddExperience extends Component {
     this.onCheck = this.onCheck.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const expData = {
@@ -81,7 +87,7 @@ class AddExperience extends Component {
                   error={errors.title}
                 />
                 <TextFieldGroup
-                  placeholder="* Location"
+                  placeholder="Location"
                   name="location"
                   value={this.state.location}
                   onChange={this.onChange}
@@ -121,9 +127,9 @@ class AddExperience extends Component {
                 <TextAreaFieldGroup
                   placeholder="Job Description"
                   name="description"
-                  value={this.state.desciption}
+                  value={this.state.description}
                   onChange={this.onChange}
-                  error={errors.desciption}
+                  error={errors.description}
                   info="Tell us about the position"
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
