@@ -16,7 +16,7 @@ class AddEducation extends Component {
       from: "",
       to: "",
       current: false,
-      desciption: "",
+      description: "",
       errors: {},
       disabled: ""
     };
@@ -41,7 +41,7 @@ class AddEducation extends Component {
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
-      desciption: this.state.desciption
+      description: this.state.description
     };
 
     this.props.addEducation(eduData, this.props.history);
