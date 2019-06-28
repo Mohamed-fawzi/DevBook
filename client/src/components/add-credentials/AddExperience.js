@@ -65,7 +65,7 @@ class AddExperience extends Component {
                 Add any job or position that you have had in the past or current
               </p>
               <small className="d-block pb-3">* = Required fields</small>
-              <from onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="* Company"
                   name="company"
@@ -127,7 +127,7 @@ class AddExperience extends Component {
                   info="Tell us about the position"
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
-              </from>
+              </form>
             </div>
           </div>
         </div>
