@@ -8,6 +8,7 @@ import { getProfileByHandle } from "../../actions/profileActions";
 // import Profile Sections
 import ProfileHeader from "./ProfileHeader";
 import ProfileAbout from "./ProfileAbout";
+import ProfileCreds from "./ProfileCreds";
 
 class Profile extends Component {
   componentDidMount() {
@@ -37,6 +38,10 @@ class Profile extends Component {
           </div>
           <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />
+          <ProfileCreds
+            education={profile.education}
+            experience={profile.experience}
+          />
         </div>
       );
     }
