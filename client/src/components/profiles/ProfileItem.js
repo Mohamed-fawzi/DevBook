@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import isEmpty from "../../validation/is-empty";
-import { spawn } from "child_process";
 
 class ProfileItem extends Component {
   render() {
@@ -51,7 +50,7 @@ class ProfileItem extends Component {
   }
 }
 ProfileItem.propTypes = {
-  profiel: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired
 };
 
 export default ProfileItem;
