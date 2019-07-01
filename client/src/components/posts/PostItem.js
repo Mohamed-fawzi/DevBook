@@ -71,12 +71,6 @@ class PostItem extends Component {
                   Comments
                 </Link>
                 {post.user === auth.user.id ? (
-                  <Link to="/edit-post" className="btn btn-light">
-                    <i className="fas fa-user-circle text-info mr-1" /> Edit
-                    Post
-                  </Link>
-                ) : null}
-                {post.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
