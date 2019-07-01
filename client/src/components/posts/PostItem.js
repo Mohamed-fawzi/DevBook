@@ -3,18 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
-import {
-  deletePost,
-  updatePost,
-  addLike,
-  removeLike
-} from "../../actions/postActions";
+import { deletePost, addLike, removeLike } from "../../actions/postActions";
 
 class PostItem extends Component {
-  onUpdateClick(id) {
-    this.props.updatePost(id);
-  }
-
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
@@ -80,13 +71,10 @@ class PostItem extends Component {
                   Comments
                 </Link>
                 {post.user === auth.user.id ? (
-                  <button
-                    onClick={this.onUpdateClick.bind(this, post._id)}
-                    type="button"
-                    className="btn btn-btn-primary mr-1"
-                  >
-                    <i className="fas fa-times " />
-                  </button>
+                  <Link to="/edit-post" className="btn btn-light">
+                    <i className="fas fa-user-circle text-info mr-1" /> Edit
+                    Post
+                  </Link>
                 ) : null}
                 {post.user === auth.user.id ? (
                   <button
@@ -112,7 +100,6 @@ PostItem.defaultProps = {
 
 PostItem.propTypes = {
   deletePost: PropTypes.func.isRequired,
-  updatePost: PropTypes.func.isRequired,
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
@@ -125,5 +112,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updatePost, deletePost, addLike, removeLike }
+  { deletePost, addLike, removeLike }
 )(PostItem);
