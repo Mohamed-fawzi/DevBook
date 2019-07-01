@@ -12,7 +12,7 @@ class ProfileItem extends Component {
           <div className="col-2">
             <img
               src={profile.user.avatar}
-              alt="Developer photo"
+              alt="Developer"
               className="rounded-circle"
             />
           </div>
