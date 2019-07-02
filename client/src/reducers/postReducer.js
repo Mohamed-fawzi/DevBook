@@ -32,6 +32,12 @@ export default function(state = initialState, action) {
         post: action.payload,
         loading: false
       };
+    case GET_POST:
+      return {
+        ...state,
+        post: action.payload,
+        loading: false
+      };
     case ADD_POST:
       return {
         ...state,
