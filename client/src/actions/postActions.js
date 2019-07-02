@@ -160,7 +160,7 @@ export const deleteComment = (postId, commentId) => dispatch => {
     .delete(`/api/posts/comment/${postId}/${commentId}`)
     .then(res =>
       dispatch({
-        type: DELETE_POST,
+        type: GET_POST,
         payload: res.data
       })
     )
