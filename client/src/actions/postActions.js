@@ -7,11 +7,13 @@ import {
   GET_POST,
   POST_LOADING,
   DELETE_POST,
-  UPDATE_POST
+  UPDATE_POST,
+  CLEAR_ERROS
 } from "./types";
 
 // Add Post
 export const addPost = postData => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("/api/posts", postData)
     .then(res =>
@@ -26,13 +28,6 @@ export const addPost = postData => dispatch => {
         payload: err.response.data
       })
     );
-};
-
-// Set Loading State
-export const setPostLoading = () => {
-  return {
-    type: POST_LOADING
-  };
 };
 
 // Get Posts
@@ -138,6 +133,7 @@ export const removeLike = id => dispatch => {
 
 // Add Comment
 export const addComment = (postId, commentData) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/posts/comment/${postId}`, commentData)
     .then(res =>
@@ -170,4 +166,18 @@ export const deleteComment = (postId, commentId) => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+// Set Loading State
+export const setPostLoading = () => {
+  return {
+    type: POST_LOADING
+  };
+};
+
+// Clear Errors
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERROS
+  };
 };
