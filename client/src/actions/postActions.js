@@ -8,7 +8,7 @@ import {
   POST_LOADING,
   DELETE_POST,
   UPDATE_POST,
-  CLEAR_ERROS
+  CLEAR_ERRORS
 } from "./types";
 
 // Add Post
@@ -178,6 +178,6 @@ export const setPostLoading = () => {
 // Clear Errors
 export const clearErrors = () => {
   return {
-    type: CLEAR_ERROS
+    type: CLEAR_ERRORS
   };
 };
