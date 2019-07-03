@@ -75,4 +75,4 @@ Post Page
 
 <img src="assets/Post.png" width="800">
 
-- All rights deserved for [Brad Traversy](https://github.com/bradtraversy)
+- All rights reserved for [Brad Traversy](https://github.com/bradtraversy)
